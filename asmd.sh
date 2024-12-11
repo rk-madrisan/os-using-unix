@@ -1,17 +1,19 @@
-echo "Enter the value a : "
-read a
-echo "Enter the value b : "
-read b
+read -p "Enter the first number (a): " a
+read -p "Enter the second number (b): " b
 
+addition=$((a + b))
+subtraction=$((a - b))
+multiplication=$((a * b))
 
-sum=$((a + b))
-echo " Sum of two values : "$sum
+if [ $b -ne 0 ]; then
+    division=$(echo "scale=2; $a / $b" | bc)
+else
+    division="undefined (division by zero)"
+fi
 
-sub1=$((a - b))
-echo " Subraction of two values : "$sub1
+echo "Results of operations on $a and $b:"
+echo "Addition: $addition"
+echo "Subtraction: $subtraction"
+echo "Multiplication: $multiplication"
+echo "Division: $division"
 
-multi=$((a * b))
-echo " Multiplication of two values : "$multi
-
-divi=$((a / b))
-echo " Division of two values : "$divi
